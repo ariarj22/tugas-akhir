@@ -1,0 +1,87 @@
+{
+  "name": "Assignment Model",
+  "models": [
+    {
+      "name": "AssignmentModel",
+      "startElementId": "v0",
+      "vertices": [
+        {
+          "id": "v8",
+          "name": "v_CourseView",
+          "sharedState": "course"
+        },
+        {
+          "id": "v9",
+          "name": "v_Assigment",
+          "sharedState": "assignment"
+        },
+        {
+          "id": "v10",
+          "name": "v_NotSubmitted"
+        },
+        {
+          "id": "v11",
+          "name": "v_Submitted"
+        },
+        {
+          "id": "v12",
+          "name": "v_AddingSubmission"
+        },
+        {
+          "id": "v13",
+          "name": "v_EditingSubmission"
+        }
+      ],
+      "edges": [
+        {
+          "id": "e8",
+          "name": "e_SelectNotSubmitted",
+          "sourceVertexId": "v9",
+          "targetVertexId": "v10"
+        },
+        {
+          "id": "e9",
+          "name": "e_SelectSubmitted",
+          "sourceVertexId": "v9",
+          "targetVertexId": "v11"
+        },
+        {
+          "id": "e10",
+          "name": "e_AddSubmission",
+          "sourceVertexId": "v10",
+          "targetVertexId": "v12"
+        },
+        {
+          "id": "e11",
+          "name": "e_Submit",
+          "sourceVertexId": "v12",
+          "targetVertexId": "v11"
+        },
+        {
+          "id": "e12",
+          "name": "e_BackAssignment",
+          "sourceVertexId": "v11",
+          "targetVertexId": "v8"
+        },
+        {
+          "id": "e13",
+          "name": "e_EditSubmission",
+          "sourceVertexId": "v11",
+          "targetVertexId": "v13"
+        },
+        {
+          "id": "e14",
+          "name": "e_ReplaceSubmission",
+          "sourceVertexId": "v13",
+          "targetVertexId": "v13"
+        },
+        {
+          "id": "e15",
+          "name": "e_SaveSubmission",
+          "sourceVertexId": "v13",
+          "targetVertexId": "v11"
+        }
+      ]
+    }
+  ]
+}

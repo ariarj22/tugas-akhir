@@ -1,0 +1,44 @@
+{
+  "name": "File Model",
+  "models": [
+    {
+      "name": "FileModel",
+      "vertices": [
+        {
+          "id": "v19",
+          "name": "v_CourseView",
+          "sharedState": "course"
+        },
+        {
+          "id": "v20",
+          "name": "v_File",
+          "sharedState": "file"
+        },
+        {
+          "id": "v21",
+          "name": "v_OpeningFile"
+        }
+      ],
+      "edges": [
+        {
+          "id": "e25",
+          "name": "e_BackFile",
+          "sourceVertexId": "v20",
+          "targetVertexId": "v19"
+        },
+        {
+          "id": "e26",
+          "name": "e_OpenFile",
+          "sourceVertexId": "v20",
+          "targetVertexId": "v21"
+        },
+        {
+          "id": "e27",
+          "name": "e_CloseFile",
+          "sourceVertexId": "v21",
+          "targetVertexId": "v20"
+        }
+      ]
+    }
+  ]
+}

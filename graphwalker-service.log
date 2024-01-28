@@ -1,0 +1,1294 @@
+17:33:23.824 [main] DEBUG org.graphwalker.io.factory.json.JsonContextFactory - {  "name": "CeLOE LMS Model",  "models": [    {      "name": "CeloeModel",      "generator": "random(edge_coverage(100))",      "actions": [        "submit = false;",        "replaceSubmission = false;",        "addDiscussion = false",        "participateDiscussion = false",        "editDiscussion = false",        "openFile = false",        "attemptQuiz = false",        "attemptAgain = false",        "reviewAttempt = false"      ],      "startElementId": "v0",      "vertices": [        {          "id": "v0",          "name": "v_LoginPage"        },        {          "id": "v1",          "name": "v_Home"        },        {          "id": "v2",          "name": "v_Dashboard"        },        {          "id": "v3",          "name": "v_CourseView"        },        {          "id": "v4",          "name": "v_Assignment"        },        {          "id": "v5",          "name": "v_Forum"        },        {          "id": "v6",          "name": "v_File"        },        {          "id": "v7",          "name": "v_Quiz"        },        {          "id": "v10",          "name": "v_NotSubmitted"        },        {          "id": "v11",          "name": "v_Submitted"        },        {          "id": "v12",          "name": "v_AddingSubmission"        },        {          "id": "v13",          "name": "v_EditingSubmission"        },        {          "id": "v16",          "name": "v_DiscussionAdded"        },        {          "id": "v17",          "name": "v_Discussion"        },        {          "id": "v18",          "name": "v_EditingDiscussion"        },        {          "id": "v21",          "name": "v_OpeningFile"        },        {          "id": "v24",          "name": "v_NotAttempted"        },        {          "id": "v25",          "name": "v_Attempted"        },        {          "id": "v26",          "name": "v_InProgress"        },        {          "id": "v27",          "name": "v_FinishingAttempt"        },        {          "id": "v28",          "name": "v_ReviewingAttempt"        }      ],      "edges": [        {          "id": "e1",          "name": "e_LoginSuccessful",          "sourceVertexId": "v0",          "targetVertexId": "v1"        },        {          "id": "e2",          "name": "e_SelectDashboard",          "sourceVertexId": "v1",          "targetVertexId": "v2"        },        {          "id": "e3",          "name": "e_SelectCourse",          "sourceVertexId": "v2",          "targetVertexId": "v3"        },        {          "id": "e4",          "name": "e_SelectAssignment",          "sourceVertexId": "v3",          "targetVertexId": "v4"        },        {          "id": "e5",          "name": "e_SelectForum",          "sourceVertexId": "v3",          "targetVertexId": "v5"        },        {          "id": "e6",          "name": "e_SelectFile",          "sourceVertexId": "v3",          "targetVertexId": "v6"        },        {          "id": "e7",          "name": "e_SelectQuiz",          "sourceVertexId": "v3",          "targetVertexId": "v7"        },        {          "id": "e8",          "name": "e_SelectNotSubmitted",          "guard": "submit == false;",          "actions": ["submit = true;"],          "sourceVertexId": "v4",          "targetVertexId": "v10"        },        {          "id": "e9",          "name": "e_SelectSubmitted",          "sourceVertexId": "v4",          "targetVertexId": "v11"        },        {          "id": "e10",          "name": "e_AddSubmission",          "sourceVertexId": "v10",          "targetVertexId": "v12"        },        {          "id": "e11",          "name": "e_Submit",          "sourceVertexId": "v12",          "targetVertexId": "v11"        },        {          "id": "e12",          "name": "e_BackAssignment",          "sourceVertexId": "v11",          "targetVertexId": "v3"        },        {          "id": "e13",          "name": "e_EditSubmission",          "guard": "replaceSubmission == false",          "sourceVertexId": "v11",          "targetVertexId": "v13"        },        {          "id": "e14",          "name": "e_ReplaceSubmission",          "actions": ["replaceSubmission = true;"],          "sourceVertexId": "v13",          "targetVertexId": "v13"        },        {          "id": "e15",          "name": "e_SaveSubmission",          "sourceVertexId": "v13",          "targetVertexId": "v11"        },        {          "id": "e16",          "name": "e_BackForum",          "sourceVertexId": "v5",          "targetVertexId": "v3"        },        {          "id": "e17",          "name": "e_AddDiscussion",          "guard": "addDiscussion == false",          "actions": ["addDiscussion = true"],          "sourceVertexId": "v5",          "targetVertexId": "v16"        },        {          "id": "e18",          "name": "e_DeleteDiscussion",          "sourceVertexId": "v16",          "targetVertexId": "v5"        },        {          "id": "e19",          "name": "e_SelectDiscussion",          "guard": "participateDiscussion == false || editDiscussion == false",          "sourceVertexId": "v5",          "targetVertexId": "v17"        },        {          "id": "e20",          "name": "e_EditDiscussion",          "guard": "editDiscussion == false",          "actions": ["editDiscussion = true"],          "sourceVertexId": "v17",          "targetVertexId": "v18"        },        {          "id": "e21",          "name": "e_SaveDiscussion",          "sourceVertexId": "v18",          "targetVertexId": "v17"        },        {          "id": "e22",          "name": "e_ParticipateDiscussion",          "actions": ["participateDiscussion = true"],          "sourceVertexId": "v17",          "targetVertexId": "v17"        },        {          "id": "e24",          "name": "e_BackDiscussion",          "sourceVertexId": "v17",          "targetVertexId": "v5"        },        {          "id": "e25",          "name": "e_BackFile",          "sourceVertexId": "v6",          "targetVertexId": "v3"        },        {          "id": "e26",          "name": "e_OpenFile",          "guard": "openFile == false",          "actions": ["openFile = true"],          "sourceVertexId": "v6",          "targetVertexId": "v21"        },        {          "id": "e27",          "name": "e_CloseFile",          "sourceVertexId": "v21",          "targetVertexId": "v6"        },        {          "id": "e28",          "name": "e_BackQuiz",          "sourceVertexId": "v25",          "targetVertexId": "v3"        },        {          "id": "e29",          "name": "e_SelectNotAttempted",          "guard": "attemptQuiz == false",          "actions": ["attemptQuiz = true"],          "sourceVertexId": "v7",          "targetVertexId": "v24"        },        {          "id": "e30",          "name": "e_SelectAttempted",          "sourceVertexId": "v7",          "targetVertexId": "v25"        },        {          "id": "e31",          "name": "e_AttemptQuiz",          "sourceVertexId": "v24",          "targetVertexId": "v26"        },        {          "id": "e32",          "name": "e_FinishAttempt",          "sourceVertexId": "v26",          "targetVertexId": "v27"        },        {          "id": "e33",          "name": "e_ReturnAttempt",          "sourceVertexId": "v27",          "targetVertexId": "v26"        },        {          "id": "e34",          "name": "e_SubmitAttempt",          "sourceVertexId": "v27",          "targetVertexId": "v28"        },        {          "id": "e35",          "name": "e_FinishReview",          "sourceVertexId": "v28",          "targetVertexId": "v25"        },        {          "id": "e36",          "name": "e_ReviewAttempt",          "guard": "reviewAttempt == false",          "actions": ["reviewAttempt = true"],          "sourceVertexId": "v25",          "targetVertexId": "v28"        },        {          "id": "e37",          "name": "e_AttemptAgain",          "guard": "attemptAgain == false",          "actions": ["attemptAgain = true"],          "sourceVertexId": "v25",          "targetVertexId": "v26"        }      ]    }  ]}
+17:33:25.587 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'submit = false;' in model: 'CeloeModel'
+17:33:25.791 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, '
+17:33:25.791 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'replaceSubmission = false;' in model: 'CeloeModel'
+17:33:25.802 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, '
+17:33:25.802 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'addDiscussion = false' in model: 'CeloeModel'
+17:33:25.806 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: false, '
+17:33:25.807 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'participateDiscussion = false' in model: 'CeloeModel'
+17:33:25.809 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: false, participateDiscussion: false, '
+17:33:25.809 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'editDiscussion = false' in model: 'CeloeModel'
+17:33:25.812 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: false, participateDiscussion: false, editDiscussion: false, '
+17:33:25.812 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'openFile = false' in model: 'CeloeModel'
+17:33:25.815 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: false, participateDiscussion: false, editDiscussion: false, openFile: false, '
+17:33:25.815 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'attemptQuiz = false' in model: 'CeloeModel'
+17:33:25.820 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: false, participateDiscussion: false, editDiscussion: false, openFile: false, attemptQuiz: false, '
+17:33:25.820 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'attemptAgain = false' in model: 'CeloeModel'
+17:33:25.824 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: false, participateDiscussion: false, editDiscussion: false, openFile: false, attemptQuiz: false, attemptAgain: false, '
+17:33:25.824 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'reviewAttempt = false' in model: 'CeloeModel'
+17:33:25.826 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: false, participateDiscussion: false, editDiscussion: false, openFile: false, attemptQuiz: false, attemptAgain: false, reviewAttempt: false, '
+Jan 24, 2024 5:33:25 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.19.4 05/24/2017 03:20 PM'
+Jan 24, 2024 5:33:26 PM org.glassfish.grizzly.http.server.NetworkListener start
+INFO: Started listener bound to [0.0.0.0:8887]
+Jan 24, 2024 5:33:26 PM org.glassfish.grizzly.http.server.HttpServer start
+INFO: [HttpServer] Started.
+Try http://localhost:8887/graphwalker/hasNext or http://localhost:8887/graphwalker/getNext
+Press Control+C to end...
+17:33:36.465 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received restart
+17:33:36.508 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:33:36.519 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:33:36.519 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:33:36.521 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_LoginPage' in model: 'CeloeModel'
+17:33:36.534 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:33:36.548 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:33:36.563 [Grizzly(11)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:33:36.574 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:33:36.574 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:33:36.575 [Grizzly(13)] INFO org.graphwalker.core.generator.SingletonRandomGenerator - Seed: 29894299240200
+17:33:36.575 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_LoginSuccessful' in model: 'CeloeModel'
+17:33:36.588 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:33:36.605 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:33:36.612 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:33:36.613 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:33:36.613 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Home' in model: 'CeloeModel'
+17:33:36.624 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:33:36.644 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:33:36.653 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:33:36.653 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:33:36.653 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectDashboard' in model: 'CeloeModel'
+17:33:36.666 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:33:42.467 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:33:42.476 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:33:42.476 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:33:42.476 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Dashboard' in model: 'CeloeModel'
+17:33:42.489 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:33:44.355 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:33:44.362 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:33:44.362 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:33:44.362 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectCourse' in model: 'CeloeModel'
+17:33:44.372 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:33:49.278 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:33:49.288 [Grizzly(11)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:33:49.288 [Grizzly(11)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:33:49.288 [Grizzly(11)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:33:49.300 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:33:50.335 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:33:50.344 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:33:50.344 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:33:50.344 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectForum' in model: 'CeloeModel'
+17:33:50.358 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:33:51.150 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:33:51.158 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:33:51.159 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:33:51.159 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Forum' in model: 'CeloeModel'
+17:33:51.170 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:33:54.257 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:33:54.263 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:33:54.263 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:33:54.263 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'addDiscussion == false' in edge e_AddDiscussion, in model: 'CeloeModel'
+17:33:54.279 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'participateDiscussion == false || editDiscussion == false' in edge e_SelectDiscussion, in model: 'CeloeModel'
+17:33:54.325 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectDiscussion' in model: 'CeloeModel'
+17:33:54.333 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:33:54.563 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:33:54.570 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:33:54.570 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:33:54.570 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Discussion' in model: 'CeloeModel'
+17:33:54.581 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:33:57.862 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:33:57.870 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:33:57.870 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:33:57.870 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'editDiscussion == false' in edge e_EditDiscussion, in model: 'CeloeModel'
+17:33:57.872 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'participateDiscussion = true' in model: 'CeloeModel'
+17:33:57.875 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: false, participateDiscussion: true, editDiscussion: false, openFile: false, attemptQuiz: false, attemptAgain: false, reviewAttempt: false, '
+17:33:57.875 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_ParticipateDiscussion' in model: 'CeloeModel'
+17:33:57.896 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:08.257 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:08.264 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:08.264 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:08.264 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Discussion' in model: 'CeloeModel'
+17:34:08.275 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:11.471 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:11.479 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:11.481 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:11.481 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'editDiscussion == false' in edge e_EditDiscussion, in model: 'CeloeModel'
+17:34:11.481 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'editDiscussion = true' in model: 'CeloeModel'
+17:34:11.484 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: false, participateDiscussion: true, editDiscussion: true, openFile: false, attemptQuiz: false, attemptAgain: false, reviewAttempt: false, '
+17:34:11.484 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_EditDiscussion' in model: 'CeloeModel'
+17:34:11.494 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:13.396 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:13.406 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:13.406 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:13.406 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_EditingDiscussion' in model: 'CeloeModel'
+17:34:13.415 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:14.591 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:14.599 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:14.599 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:14.599 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SaveDiscussion' in model: 'CeloeModel'
+17:34:14.608 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:15.848 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:15.857 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:15.858 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:15.858 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Discussion' in model: 'CeloeModel'
+17:34:15.867 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:19.313 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:19.322 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:19.322 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:19.322 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'editDiscussion == false' in edge e_EditDiscussion, in model: 'CeloeModel'
+17:34:19.323 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'participateDiscussion = true' in model: 'CeloeModel'
+17:34:19.325 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: false, participateDiscussion: true, editDiscussion: true, openFile: false, attemptQuiz: false, attemptAgain: false, reviewAttempt: false, '
+17:34:19.328 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_ParticipateDiscussion' in model: 'CeloeModel'
+17:34:19.342 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:29.212 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:29.219 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:29.219 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:29.220 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Discussion' in model: 'CeloeModel'
+17:34:29.227 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:32.418 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:32.424 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:32.426 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:32.426 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'editDiscussion == false' in edge e_EditDiscussion, in model: 'CeloeModel'
+17:34:32.426 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackDiscussion' in model: 'CeloeModel'
+17:34:32.435 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:33.609 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:33.624 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:33.625 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:33.625 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Forum' in model: 'CeloeModel'
+17:34:33.641 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:36.749 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:36.756 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:36.756 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:36.756 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'addDiscussion == false' in edge e_AddDiscussion, in model: 'CeloeModel'
+17:34:36.757 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'participateDiscussion == false || editDiscussion == false' in edge e_SelectDiscussion, in model: 'CeloeModel'
+17:34:36.758 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'addDiscussion = true' in model: 'CeloeModel'
+17:34:36.760 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: true, participateDiscussion: true, editDiscussion: true, openFile: false, attemptQuiz: false, attemptAgain: false, reviewAttempt: false, '
+17:34:36.760 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_AddDiscussion' in model: 'CeloeModel'
+17:34:36.771 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:40.083 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:40.091 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:40.091 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:40.091 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_DiscussionAdded' in model: 'CeloeModel'
+17:34:40.101 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:41.860 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:41.870 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:41.870 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:41.870 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_DeleteDiscussion' in model: 'CeloeModel'
+17:34:41.878 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:48.558 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:48.565 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:48.565 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:48.565 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Forum' in model: 'CeloeModel'
+17:34:48.570 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:51.751 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:51.758 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:51.758 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:51.758 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'addDiscussion == false' in edge e_AddDiscussion, in model: 'CeloeModel'
+17:34:51.759 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'participateDiscussion == false || editDiscussion == false' in edge e_SelectDiscussion, in model: 'CeloeModel'
+17:34:51.759 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackForum' in model: 'CeloeModel'
+17:34:51.767 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:53.002 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:53.010 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:53.011 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:53.011 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:34:53.021 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:54.466 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:54.472 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:54.472 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:54.473 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectFile' in model: 'CeloeModel'
+17:34:54.482 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:54.654 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:54.664 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:54.664 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:54.664 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_File' in model: 'CeloeModel'
+17:34:54.673 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:56.148 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:56.153 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:56.154 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:56.154 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'openFile == false' in edge e_OpenFile, in model: 'CeloeModel'
+17:34:56.155 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'openFile = true' in model: 'CeloeModel'
+17:34:56.157 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: true, participateDiscussion: true, editDiscussion: true, openFile: true, attemptQuiz: false, attemptAgain: false, reviewAttempt: false, '
+17:34:56.157 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_OpenFile' in model: 'CeloeModel'
+17:34:56.166 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:56.256 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:56.261 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:56.262 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:56.262 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_OpeningFile' in model: 'CeloeModel'
+17:34:56.270 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:34:58.648 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:34:58.655 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:34:58.655 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:34:58.655 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_CloseFile' in model: 'CeloeModel'
+17:34:58.663 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:01.988 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:01.996 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:01.997 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:01.997 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_File' in model: 'CeloeModel'
+17:35:02.006 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:03.559 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:03.566 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:03.566 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:03.566 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'openFile == false' in edge e_OpenFile, in model: 'CeloeModel'
+17:35:03.567 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackFile' in model: 'CeloeModel'
+17:35:03.575 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:04.707 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:04.717 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:04.718 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:04.718 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:35:04.725 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:05.900 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:05.905 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:05.906 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:05.906 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectQuiz' in model: 'CeloeModel'
+17:35:05.912 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:05.925 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:05.930 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:05.932 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:05.932 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Quiz' in model: 'CeloeModel'
+17:35:05.938 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:05.950 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:05.958 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:05.958 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:05.958 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptQuiz == false' in edge e_SelectNotAttempted, in model: 'CeloeModel'
+17:35:05.959 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAttempted' in model: 'CeloeModel'
+17:35:05.966 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:06.128 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:06.134 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:06.134 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:06.135 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Attempted' in model: 'CeloeModel'
+17:35:06.142 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:07.652 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:07.657 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:07.657 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:07.657 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'reviewAttempt == false' in edge e_ReviewAttempt, in model: 'CeloeModel'
+17:35:07.658 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptAgain == false' in edge e_AttemptAgain, in model: 'CeloeModel'
+17:35:07.659 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'reviewAttempt = true' in model: 'CeloeModel'
+17:35:07.662 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: true, participateDiscussion: true, editDiscussion: true, openFile: true, attemptQuiz: false, attemptAgain: false, reviewAttempt: true, '
+17:35:07.662 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_ReviewAttempt' in model: 'CeloeModel'
+17:35:07.672 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:07.768 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:07.776 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:07.777 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:07.777 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_ReviewingAttempt' in model: 'CeloeModel'
+17:35:07.785 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:09.164 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:09.171 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:09.171 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:09.171 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_FinishReview' in model: 'CeloeModel'
+17:35:09.179 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:10.341 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:10.350 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:10.351 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:10.352 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Attempted' in model: 'CeloeModel'
+17:35:10.360 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:11.706 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:11.713 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:11.713 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:11.713 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'reviewAttempt == false' in edge e_ReviewAttempt, in model: 'CeloeModel'
+17:35:11.713 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptAgain == false' in edge e_AttemptAgain, in model: 'CeloeModel'
+17:35:11.713 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackQuiz' in model: 'CeloeModel'
+17:35:11.722 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:12.900 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:12.909 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:12.909 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:12.909 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:35:12.919 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:14.470 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:14.475 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:14.475 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:14.475 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAssignment' in model: 'CeloeModel'
+17:35:14.484 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:14.499 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:14.507 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:14.507 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:14.509 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Assignment' in model: 'CeloeModel'
+17:35:14.520 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:14.533 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:14.542 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:14.543 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:14.543 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'submit == false;' in edge e_SelectNotSubmitted, in model: 'CeloeModel'
+17:35:14.544 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectSubmitted' in model: 'CeloeModel'
+17:35:14.553 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:14.743 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:14.751 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:14.751 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:14.751 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Submitted' in model: 'CeloeModel'
+17:35:14.759 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:16.110 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:16.119 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:16.119 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:16.119 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'replaceSubmission == false' in edge e_EditSubmission, in model: 'CeloeModel'
+17:35:16.120 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackAssignment' in model: 'CeloeModel'
+17:35:16.131 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:17.756 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:17.765 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:17.766 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:17.766 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:35:17.777 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:18.968 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:18.975 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:18.975 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:18.975 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectFile' in model: 'CeloeModel'
+17:35:18.984 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:19.132 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:19.139 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:19.139 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:19.139 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_File' in model: 'CeloeModel'
+17:35:19.147 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:20.552 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:20.557 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:20.559 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:20.559 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'openFile == false' in edge e_OpenFile, in model: 'CeloeModel'
+17:35:20.559 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackFile' in model: 'CeloeModel'
+17:35:20.567 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:21.699 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:21.708 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:21.708 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:21.708 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:35:21.720 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:22.888 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:22.894 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:22.894 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:22.894 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectFile' in model: 'CeloeModel'
+17:35:22.901 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:23.055 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:23.063 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:23.063 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:23.063 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_File' in model: 'CeloeModel'
+17:35:23.069 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:24.497 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:24.502 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:24.503 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:24.503 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'openFile == false' in edge e_OpenFile, in model: 'CeloeModel'
+17:35:24.503 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackFile' in model: 'CeloeModel'
+17:35:24.513 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:25.659 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:25.670 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:25.670 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:25.670 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:35:25.680 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:26.853 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:26.859 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:26.859 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:26.861 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectFile' in model: 'CeloeModel'
+17:35:26.870 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:27.025 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:27.033 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:27.033 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:27.033 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_File' in model: 'CeloeModel'
+17:35:27.042 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:28.559 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:28.565 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:28.565 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:28.565 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'openFile == false' in edge e_OpenFile, in model: 'CeloeModel'
+17:35:28.565 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackFile' in model: 'CeloeModel'
+17:35:28.573 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:29.723 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:29.733 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:29.733 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:29.733 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:35:29.743 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:31.140 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:31.157 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:31.158 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:31.158 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectQuiz' in model: 'CeloeModel'
+17:35:31.169 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:31.183 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:31.193 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:31.193 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:31.193 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Quiz' in model: 'CeloeModel'
+17:35:31.203 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:31.216 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:31.224 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:31.225 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:31.225 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptQuiz == false' in edge e_SelectNotAttempted, in model: 'CeloeModel'
+17:35:31.226 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'attemptQuiz = true' in model: 'CeloeModel'
+17:35:31.232 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: true, participateDiscussion: true, editDiscussion: true, openFile: true, attemptQuiz: true, attemptAgain: false, reviewAttempt: true, '
+17:35:31.233 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectNotAttempted' in model: 'CeloeModel'
+17:35:31.261 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:31.423 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:31.429 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:31.429 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:31.430 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_NotAttempted' in model: 'CeloeModel'
+17:35:31.438 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:32.909 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:32.915 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:32.915 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:32.915 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_AttemptQuiz' in model: 'CeloeModel'
+17:35:32.925 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:35.370 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:35.381 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:35.381 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:35.381 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_InProgress' in model: 'CeloeModel'
+17:35:35.390 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:38.702 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:38.711 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:38.712 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:38.712 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_FinishAttempt' in model: 'CeloeModel'
+17:35:38.722 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:39.398 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:39.405 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:39.405 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:39.405 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_FinishingAttempt' in model: 'CeloeModel'
+17:35:39.411 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:40.567 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:40.571 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:40.571 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:40.571 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_ReturnAttempt' in model: 'CeloeModel'
+17:35:40.577 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:40.680 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:40.688 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:40.688 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:40.688 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_InProgress' in model: 'CeloeModel'
+17:35:40.697 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:44.150 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:44.158 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:44.159 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:44.159 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_FinishAttempt' in model: 'CeloeModel'
+17:35:44.170 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:44.539 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:44.549 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:44.550 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:44.550 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_FinishingAttempt' in model: 'CeloeModel'
+17:35:44.561 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:45.828 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:45.833 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:45.833 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:45.834 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_ReturnAttempt' in model: 'CeloeModel'
+17:35:45.840 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:45.936 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:45.942 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:45.942 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:45.942 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_InProgress' in model: 'CeloeModel'
+17:35:45.949 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:49.511 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:49.517 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:49.517 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:49.517 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_FinishAttempt' in model: 'CeloeModel'
+17:35:49.527 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:49.869 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:49.878 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:49.878 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:49.878 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_FinishingAttempt' in model: 'CeloeModel'
+17:35:49.888 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:51.137 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:51.143 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:51.143 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:51.143 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SubmitAttempt' in model: 'CeloeModel'
+17:35:51.149 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:51.923 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:51.929 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:51.930 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:51.930 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_ReviewingAttempt' in model: 'CeloeModel'
+17:35:51.938 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:53.300 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:53.307 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:53.307 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:53.307 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_FinishReview' in model: 'CeloeModel'
+17:35:53.316 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:55.319 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:55.325 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:55.325 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:55.325 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Attempted' in model: 'CeloeModel'
+17:35:55.334 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:56.406 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:56.413 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:56.413 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:56.413 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'reviewAttempt == false' in edge e_ReviewAttempt, in model: 'CeloeModel'
+17:35:56.414 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptAgain == false' in edge e_AttemptAgain, in model: 'CeloeModel'
+17:35:56.415 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'attemptAgain = true' in model: 'CeloeModel'
+17:35:56.417 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: false, replaceSubmission: false, addDiscussion: true, participateDiscussion: true, editDiscussion: true, openFile: true, attemptQuiz: true, attemptAgain: true, reviewAttempt: true, '
+17:35:56.417 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_AttemptAgain' in model: 'CeloeModel'
+17:35:56.424 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:35:58.817 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:35:58.826 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:35:58.826 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:35:58.826 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_InProgress' in model: 'CeloeModel'
+17:35:58.838 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:01.991 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:01.998 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:01.998 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:02.000 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_FinishAttempt' in model: 'CeloeModel'
+17:36:02.008 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:02.669 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:02.673 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:02.675 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:02.675 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_FinishingAttempt' in model: 'CeloeModel'
+17:36:02.681 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:03.840 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:03.845 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:03.845 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:03.845 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_ReturnAttempt' in model: 'CeloeModel'
+17:36:03.851 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:03.947 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:03.952 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:03.952 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:03.952 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_InProgress' in model: 'CeloeModel'
+17:36:03.958 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:07.538 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:07.547 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:07.547 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:07.547 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_FinishAttempt' in model: 'CeloeModel'
+17:36:07.556 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:07.899 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:07.907 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:07.907 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:07.907 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_FinishingAttempt' in model: 'CeloeModel'
+17:36:07.917 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:09.253 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:09.257 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:09.259 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:09.259 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_ReturnAttempt' in model: 'CeloeModel'
+17:36:09.267 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:09.362 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:09.368 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:09.368 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:09.368 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_InProgress' in model: 'CeloeModel'
+17:36:09.375 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:12.943 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:12.949 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:12.949 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:12.949 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_FinishAttempt' in model: 'CeloeModel'
+17:36:12.956 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:13.156 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:13.164 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:13.165 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:13.165 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_FinishingAttempt' in model: 'CeloeModel'
+17:36:13.174 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:14.411 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:14.416 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:14.416 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:14.416 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SubmitAttempt' in model: 'CeloeModel'
+17:36:14.423 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:15.205 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:15.211 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:15.212 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:15.212 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_ReviewingAttempt' in model: 'CeloeModel'
+17:36:15.216 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:16.505 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:16.511 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:16.511 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:16.511 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_FinishReview' in model: 'CeloeModel'
+17:36:16.519 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:18.288 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:18.295 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:18.296 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:18.296 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Attempted' in model: 'CeloeModel'
+17:36:18.303 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:19.394 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:19.400 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:19.400 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:19.400 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'reviewAttempt == false' in edge e_ReviewAttempt, in model: 'CeloeModel'
+17:36:19.400 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptAgain == false' in edge e_AttemptAgain, in model: 'CeloeModel'
+17:36:19.400 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackQuiz' in model: 'CeloeModel'
+17:36:19.408 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:20.570 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:20.578 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:20.578 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:20.578 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:36:20.587 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:21.930 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:21.935 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:21.935 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:21.935 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectFile' in model: 'CeloeModel'
+17:36:21.941 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:22.107 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:22.115 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:22.115 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:22.115 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_File' in model: 'CeloeModel'
+17:36:22.124 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:23.596 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:23.602 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:23.602 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:23.603 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'openFile == false' in edge e_OpenFile, in model: 'CeloeModel'
+17:36:23.604 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackFile' in model: 'CeloeModel'
+17:36:23.612 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:24.748 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:24.755 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:24.755 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:24.755 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:36:24.764 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:25.911 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:25.917 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:25.917 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:25.917 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAssignment' in model: 'CeloeModel'
+17:36:25.924 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:25.947 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:25.954 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:25.954 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:25.954 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Assignment' in model: 'CeloeModel'
+17:36:25.962 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:25.976 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:25.982 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:25.983 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:25.983 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'submit == false;' in edge e_SelectNotSubmitted, in model: 'CeloeModel'
+17:36:25.985 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectSubmitted' in model: 'CeloeModel'
+17:36:25.993 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:26.146 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:26.151 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:26.151 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:26.152 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Submitted' in model: 'CeloeModel'
+17:36:26.159 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:28.360 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:28.366 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:28.366 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:28.366 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'replaceSubmission == false' in edge e_EditSubmission, in model: 'CeloeModel'
+17:36:28.367 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackAssignment' in model: 'CeloeModel'
+17:36:28.375 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:29.545 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:29.552 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:29.552 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:29.552 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:36:29.562 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:30.888 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:30.894 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:30.895 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:30.895 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAssignment' in model: 'CeloeModel'
+17:36:30.899 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:30.910 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:30.916 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:30.918 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:30.918 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Assignment' in model: 'CeloeModel'
+17:36:30.924 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:30.935 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:30.941 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:30.941 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:30.941 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'submit == false;' in edge e_SelectNotSubmitted, in model: 'CeloeModel'
+17:36:30.942 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'submit = true;' in model: 'CeloeModel'
+17:36:30.943 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: true, replaceSubmission: false, addDiscussion: true, participateDiscussion: true, editDiscussion: true, openFile: true, attemptQuiz: true, attemptAgain: true, reviewAttempt: true, '
+17:36:30.943 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectNotSubmitted' in model: 'CeloeModel'
+17:36:30.951 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:31.108 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:31.113 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:31.113 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:31.113 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_NotSubmitted' in model: 'CeloeModel'
+17:36:31.121 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:32.633 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:32.638 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:32.638 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:32.638 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_AddSubmission' in model: 'CeloeModel'
+17:36:32.645 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:35.953 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:35.963 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:35.963 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:35.963 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_AddingSubmission' in model: 'CeloeModel'
+17:36:35.973 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:37.275 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:37.279 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:37.279 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:37.279 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_Submit' in model: 'CeloeModel'
+17:36:37.285 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:43.856 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:43.861 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:43.861 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:43.863 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Submitted' in model: 'CeloeModel'
+17:36:43.870 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:45.443 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:45.451 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:45.451 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:45.451 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'replaceSubmission == false' in edge e_EditSubmission, in model: 'CeloeModel'
+17:36:45.451 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackAssignment' in model: 'CeloeModel'
+17:36:45.458 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:46.959 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:46.968 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:46.968 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:46.968 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:36:46.978 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:48.307 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:48.312 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:48.312 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:48.312 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectFile' in model: 'CeloeModel'
+17:36:48.317 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:48.461 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:48.468 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:48.469 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:48.469 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_File' in model: 'CeloeModel'
+17:36:48.477 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:49.889 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:49.895 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:49.895 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:49.895 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'openFile == false' in edge e_OpenFile, in model: 'CeloeModel'
+17:36:49.895 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackFile' in model: 'CeloeModel'
+17:36:49.901 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:51.007 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:51.014 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:51.014 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:51.014 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:36:51.021 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:52.480 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:52.485 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:52.486 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:52.486 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectFile' in model: 'CeloeModel'
+17:36:52.493 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:52.646 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:52.655 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:52.655 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:52.655 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_File' in model: 'CeloeModel'
+17:36:52.665 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:54.058 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:54.074 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:54.076 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:54.076 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'openFile == false' in edge e_OpenFile, in model: 'CeloeModel'
+17:36:54.076 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackFile' in model: 'CeloeModel'
+17:36:54.082 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:55.200 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:55.206 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:55.206 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:55.206 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:36:55.212 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:56.378 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:56.383 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:56.383 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:56.383 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectFile' in model: 'CeloeModel'
+17:36:56.389 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:56.550 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:56.557 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:56.557 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:56.557 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_File' in model: 'CeloeModel'
+17:36:56.568 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:57.967 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:57.973 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:57.973 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:57.973 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'openFile == false' in edge e_OpenFile, in model: 'CeloeModel'
+17:36:57.973 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackFile' in model: 'CeloeModel'
+17:36:57.980 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:36:59.123 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:36:59.131 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:36:59.132 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:36:59.132 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:36:59.139 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:00.320 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:00.325 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:00.325 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:00.325 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectForum' in model: 'CeloeModel'
+17:37:00.331 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:00.766 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:00.773 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:00.792 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:00.792 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Forum' in model: 'CeloeModel'
+17:37:00.798 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:03.933 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:03.940 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:03.940 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:03.940 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'addDiscussion == false' in edge e_AddDiscussion, in model: 'CeloeModel'
+17:37:03.942 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'participateDiscussion == false || editDiscussion == false' in edge e_SelectDiscussion, in model: 'CeloeModel'
+17:37:03.942 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackForum' in model: 'CeloeModel'
+17:37:03.952 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:05.138 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:05.148 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:05.148 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:05.148 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:37:05.156 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:06.531 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:06.536 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:06.536 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:06.536 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectQuiz' in model: 'CeloeModel'
+17:37:06.541 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:06.552 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:06.559 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:06.559 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:06.559 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Quiz' in model: 'CeloeModel'
+17:37:06.564 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:06.576 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:06.583 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:06.583 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:06.583 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptQuiz == false' in edge e_SelectNotAttempted, in model: 'CeloeModel'
+17:37:06.584 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAttempted' in model: 'CeloeModel'
+17:37:06.590 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:06.729 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:06.737 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:06.737 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:06.737 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Attempted' in model: 'CeloeModel'
+17:37:06.744 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:08.202 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:08.207 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:08.207 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:08.207 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'reviewAttempt == false' in edge e_ReviewAttempt, in model: 'CeloeModel'
+17:37:08.207 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptAgain == false' in edge e_AttemptAgain, in model: 'CeloeModel'
+17:37:08.208 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackQuiz' in model: 'CeloeModel'
+17:37:08.212 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:09.378 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:09.386 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:09.386 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:09.386 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:37:09.393 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:10.701 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:10.707 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:10.708 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:10.708 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectFile' in model: 'CeloeModel'
+17:37:10.715 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:10.876 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:10.882 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:10.882 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:10.882 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_File' in model: 'CeloeModel'
+17:37:10.890 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:12.308 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:12.313 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:12.313 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:12.313 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'openFile == false' in edge e_OpenFile, in model: 'CeloeModel'
+17:37:12.314 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackFile' in model: 'CeloeModel'
+17:37:12.321 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:13.463 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:13.472 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:13.472 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:13.472 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:37:13.480 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:14.793 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:14.799 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:14.800 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:14.800 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectForum' in model: 'CeloeModel'
+17:37:14.807 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:14.973 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:14.982 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:14.982 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:14.983 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Forum' in model: 'CeloeModel'
+17:37:14.996 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:18.167 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:18.173 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:18.173 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:18.173 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'addDiscussion == false' in edge e_AddDiscussion, in model: 'CeloeModel'
+17:37:18.173 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'participateDiscussion == false || editDiscussion == false' in edge e_SelectDiscussion, in model: 'CeloeModel'
+17:37:18.174 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackForum' in model: 'CeloeModel'
+17:37:18.182 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:19.405 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:19.414 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:19.416 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:19.416 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:37:19.426 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:20.830 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:20.835 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:20.835 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:20.835 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectForum' in model: 'CeloeModel'
+17:37:20.841 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:21.007 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:21.015 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:21.015 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:21.015 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Forum' in model: 'CeloeModel'
+17:37:21.026 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:24.319 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:24.326 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:24.326 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:24.326 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'addDiscussion == false' in edge e_AddDiscussion, in model: 'CeloeModel'
+17:37:24.326 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'participateDiscussion == false || editDiscussion == false' in edge e_SelectDiscussion, in model: 'CeloeModel'
+17:37:24.326 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackForum' in model: 'CeloeModel'
+17:37:24.333 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:25.522 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:25.530 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:25.530 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:25.530 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:37:25.540 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:26.939 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:26.944 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:26.944 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:26.944 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectFile' in model: 'CeloeModel'
+17:37:26.949 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:27.090 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:27.097 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:27.097 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:27.097 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_File' in model: 'CeloeModel'
+17:37:27.103 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:28.497 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:28.505 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:28.505 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:28.505 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'openFile == false' in edge e_OpenFile, in model: 'CeloeModel'
+17:37:28.506 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackFile' in model: 'CeloeModel'
+17:37:28.513 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:29.738 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:29.746 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:29.746 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:29.746 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:37:29.751 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:31.189 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:31.193 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:31.193 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:31.194 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectQuiz' in model: 'CeloeModel'
+17:37:31.199 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:31.216 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:31.223 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:31.224 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:31.224 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Quiz' in model: 'CeloeModel'
+17:37:31.231 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:31.245 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:31.252 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:31.252 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:31.252 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptQuiz == false' in edge e_SelectNotAttempted, in model: 'CeloeModel'
+17:37:31.253 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAttempted' in model: 'CeloeModel'
+17:37:31.261 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:31.416 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:31.424 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:31.424 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:31.424 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Attempted' in model: 'CeloeModel'
+17:37:31.432 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:33.029 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:33.035 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:33.035 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:33.035 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'reviewAttempt == false' in edge e_ReviewAttempt, in model: 'CeloeModel'
+17:37:33.036 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptAgain == false' in edge e_AttemptAgain, in model: 'CeloeModel'
+17:37:33.036 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackQuiz' in model: 'CeloeModel'
+17:37:33.042 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:34.213 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:34.220 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:34.220 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:34.220 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:37:34.228 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:35.421 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:35.427 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:35.427 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:35.427 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectQuiz' in model: 'CeloeModel'
+17:37:35.433 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:35.447 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:35.453 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:35.453 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:35.453 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Quiz' in model: 'CeloeModel'
+17:37:35.458 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:35.471 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:35.479 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:35.479 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:35.479 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptQuiz == false' in edge e_SelectNotAttempted, in model: 'CeloeModel'
+17:37:35.479 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAttempted' in model: 'CeloeModel'
+17:37:35.486 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:35.642 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:35.649 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:35.650 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:35.650 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Attempted' in model: 'CeloeModel'
+17:37:35.656 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:37.110 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:37.115 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:37.115 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:37.115 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'reviewAttempt == false' in edge e_ReviewAttempt, in model: 'CeloeModel'
+17:37:37.117 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptAgain == false' in edge e_AttemptAgain, in model: 'CeloeModel'
+17:37:37.117 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackQuiz' in model: 'CeloeModel'
+17:37:37.124 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:38.287 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:38.296 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:38.296 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:38.296 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:37:38.306 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:39.751 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:39.755 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:39.755 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:39.755 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectForum' in model: 'CeloeModel'
+17:37:39.761 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:39.917 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:39.922 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:39.923 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:39.923 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Forum' in model: 'CeloeModel'
+17:37:39.931 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:43.160 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:43.166 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:43.166 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:43.166 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'addDiscussion == false' in edge e_AddDiscussion, in model: 'CeloeModel'
+17:37:43.166 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'participateDiscussion == false || editDiscussion == false' in edge e_SelectDiscussion, in model: 'CeloeModel'
+17:37:43.166 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackForum' in model: 'CeloeModel'
+17:37:43.176 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:44.374 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:44.383 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:44.383 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:44.383 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:37:44.395 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:45.769 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:45.775 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:45.775 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:45.775 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectQuiz' in model: 'CeloeModel'
+17:37:45.781 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:45.792 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:45.799 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:45.799 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:45.799 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Quiz' in model: 'CeloeModel'
+17:37:45.807 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:45.820 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:45.827 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:45.827 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:45.827 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptQuiz == false' in edge e_SelectNotAttempted, in model: 'CeloeModel'
+17:37:45.827 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAttempted' in model: 'CeloeModel'
+17:37:45.835 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:45.991 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:45.997 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:45.998 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:45.998 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Attempted' in model: 'CeloeModel'
+17:37:46.006 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:47.470 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:47.475 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:47.475 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:47.475 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'reviewAttempt == false' in edge e_ReviewAttempt, in model: 'CeloeModel'
+17:37:47.475 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptAgain == false' in edge e_AttemptAgain, in model: 'CeloeModel'
+17:37:47.475 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackQuiz' in model: 'CeloeModel'
+17:37:47.482 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:48.647 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:48.654 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:48.655 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:48.655 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:37:48.661 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:49.835 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:49.841 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:49.841 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:49.841 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAssignment' in model: 'CeloeModel'
+17:37:49.846 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:49.858 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:49.864 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:49.865 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:49.865 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Assignment' in model: 'CeloeModel'
+17:37:49.871 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:49.885 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:49.892 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:49.892 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:49.892 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'submit == false;' in edge e_SelectNotSubmitted, in model: 'CeloeModel'
+17:37:49.893 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectSubmitted' in model: 'CeloeModel'
+17:37:49.899 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:50.059 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:50.068 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:50.068 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:50.068 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Submitted' in model: 'CeloeModel'
+17:37:50.076 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:52.260 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:52.265 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:52.265 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:52.265 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'replaceSubmission == false' in edge e_EditSubmission, in model: 'CeloeModel'
+17:37:52.266 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_EditSubmission' in model: 'CeloeModel'
+17:37:52.271 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:52.378 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:52.387 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:52.387 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:52.387 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_EditingSubmission' in model: 'CeloeModel'
+17:37:52.395 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:53.708 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:53.714 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:53.714 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:53.714 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SaveSubmission' in model: 'CeloeModel'
+17:37:53.720 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:56.160 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:56.165 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:56.165 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:56.165 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Submitted' in model: 'CeloeModel'
+17:37:56.172 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:57.311 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:57.316 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:57.316 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:57.316 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'replaceSubmission == false' in edge e_EditSubmission, in model: 'CeloeModel'
+17:37:57.316 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackAssignment' in model: 'CeloeModel'
+17:37:57.323 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:58.495 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:58.504 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:58.504 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:58.504 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:37:58.513 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:59.700 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:59.705 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:59.705 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:59.706 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectQuiz' in model: 'CeloeModel'
+17:37:59.712 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:59.726 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:59.733 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:59.733 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:59.733 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Quiz' in model: 'CeloeModel'
+17:37:59.739 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:59.751 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:59.758 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:59.758 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:59.759 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptQuiz == false' in edge e_SelectNotAttempted, in model: 'CeloeModel'
+17:37:59.759 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAttempted' in model: 'CeloeModel'
+17:37:59.766 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:37:59.911 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:37:59.918 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:37:59.918 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:37:59.918 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Attempted' in model: 'CeloeModel'
+17:37:59.925 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:01.358 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:01.363 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:01.363 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:01.363 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'reviewAttempt == false' in edge e_ReviewAttempt, in model: 'CeloeModel'
+17:38:01.363 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptAgain == false' in edge e_AttemptAgain, in model: 'CeloeModel'
+17:38:01.363 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackQuiz' in model: 'CeloeModel'
+17:38:01.368 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:02.509 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:02.516 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:02.516 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:02.516 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:38:02.524 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:03.736 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:03.742 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:03.742 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:03.742 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectQuiz' in model: 'CeloeModel'
+17:38:03.748 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:03.759 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:03.768 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:03.768 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:03.768 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Quiz' in model: 'CeloeModel'
+17:38:03.774 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:03.788 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:03.795 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:03.795 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:03.795 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptQuiz == false' in edge e_SelectNotAttempted, in model: 'CeloeModel'
+17:38:03.795 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAttempted' in model: 'CeloeModel'
+17:38:03.804 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:03.952 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:03.958 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:03.958 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:03.958 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Attempted' in model: 'CeloeModel'
+17:38:03.966 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:05.439 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:05.443 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:05.443 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:05.443 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'reviewAttempt == false' in edge e_ReviewAttempt, in model: 'CeloeModel'
+17:38:05.444 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptAgain == false' in edge e_AttemptAgain, in model: 'CeloeModel'
+17:38:05.444 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackQuiz' in model: 'CeloeModel'
+17:38:05.454 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:06.621 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:06.628 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:06.628 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:06.628 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:38:06.636 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:08.056 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:08.061 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:08.061 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:08.061 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectQuiz' in model: 'CeloeModel'
+17:38:08.068 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:08.080 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:08.084 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:08.084 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:08.084 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Quiz' in model: 'CeloeModel'
+17:38:08.094 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:08.105 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:08.111 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:08.111 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:08.111 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptQuiz == false' in edge e_SelectNotAttempted, in model: 'CeloeModel'
+17:38:08.111 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAttempted' in model: 'CeloeModel'
+17:38:08.117 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:08.256 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:08.261 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:08.261 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:08.261 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Attempted' in model: 'CeloeModel'
+17:38:08.268 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:09.735 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:09.740 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:09.740 [Grizzly(1)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:09.740 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'reviewAttempt == false' in edge e_ReviewAttempt, in model: 'CeloeModel'
+17:38:09.741 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptAgain == false' in edge e_AttemptAgain, in model: 'CeloeModel'
+17:38:09.741 [Grizzly(1)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackQuiz' in model: 'CeloeModel'
+17:38:09.747 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:10.901 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:10.909 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:10.909 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:10.911 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:38:10.919 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:12.220 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:12.225 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:12.225 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:12.225 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectQuiz' in model: 'CeloeModel'
+17:38:12.232 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:12.244 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:12.253 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:12.253 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:12.253 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Quiz' in model: 'CeloeModel'
+17:38:12.260 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:12.273 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:12.280 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:12.280 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:12.280 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptQuiz == false' in edge e_SelectNotAttempted, in model: 'CeloeModel'
+17:38:12.281 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAttempted' in model: 'CeloeModel'
+17:38:12.289 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:12.448 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:12.458 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:12.458 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:12.458 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Attempted' in model: 'CeloeModel'
+17:38:12.471 [Grizzly(1)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:13.973 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:13.978 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:13.978 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:13.978 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'reviewAttempt == false' in edge e_ReviewAttempt, in model: 'CeloeModel'
+17:38:13.978 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'attemptAgain == false' in edge e_AttemptAgain, in model: 'CeloeModel'
+17:38:13.978 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackQuiz' in model: 'CeloeModel'
+17:38:13.986 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:15.154 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:15.161 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:15.161 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:15.161 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:38:15.169 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:16.530 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:16.535 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:16.535 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:16.535 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAssignment' in model: 'CeloeModel'
+17:38:16.542 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:16.556 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:16.563 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:16.563 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:16.563 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Assignment' in model: 'CeloeModel'
+17:38:16.571 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:16.584 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:16.592 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:16.592 [Grizzly(29)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:16.592 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'submit == false;' in edge e_SelectNotSubmitted, in model: 'CeloeModel'
+17:38:16.592 [Grizzly(29)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectSubmitted' in model: 'CeloeModel'
+17:38:16.599 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:16.756 [Grizzly(32)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:16.765 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:16.765 [Grizzly(3)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:16.765 [Grizzly(3)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Submitted' in model: 'CeloeModel'
+17:38:16.774 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:18.864 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:18.869 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:18.869 [Grizzly(9)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:18.869 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'replaceSubmission == false' in edge e_EditSubmission, in model: 'CeloeModel'
+17:38:18.869 [Grizzly(9)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_EditSubmission' in model: 'CeloeModel'
+17:38:18.873 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:18.965 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:18.970 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:18.970 [Grizzly(15)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:18.970 [Grizzly(15)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_EditingSubmission' in model: 'CeloeModel'
+17:38:18.979 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:20.258 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:20.264 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:20.264 [Grizzly(21)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:20.264 [Grizzly(21)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SaveSubmission' in model: 'CeloeModel'
+17:38:20.270 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:22.688 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:22.693 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:22.693 [Grizzly(27)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:22.693 [Grizzly(27)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Submitted' in model: 'CeloeModel'
+17:38:22.700 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:23.844 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:23.851 [Grizzly(32)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:23.851 [Grizzly(32)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:23.851 [Grizzly(32)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'replaceSubmission == false' in edge e_EditSubmission, in model: 'CeloeModel'
+17:38:23.852 [Grizzly(32)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_BackAssignment' in model: 'CeloeModel'
+17:38:23.860 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:25.019 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:25.026 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:25.026 [Grizzly(7)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:25.026 [Grizzly(7)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_CourseView' in model: 'CeloeModel'
+17:38:25.034 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:26.418 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:26.424 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:26.424 [Grizzly(13)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:26.424 [Grizzly(13)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectAssignment' in model: 'CeloeModel'
+17:38:26.430 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:26.444 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:26.451 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:26.452 [Grizzly(19)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:26.452 [Grizzly(19)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Assignment' in model: 'CeloeModel'
+17:38:26.460 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:26.472 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:26.479 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:26.480 [Grizzly(25)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:26.480 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'submit == false;' in edge e_SelectNotSubmitted, in model: 'CeloeModel'
+17:38:26.480 [Grizzly(25)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_SelectSubmitted' in model: 'CeloeModel'
+17:38:26.487 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:26.642 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:26.649 [Grizzly(31)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:26.670 [Grizzly(31)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:26.670 [Grizzly(31)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_Submitted' in model: 'CeloeModel'
+17:38:26.679 [Grizzly(32)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:28.814 [Grizzly(3)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:28.820 [Grizzly(5)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:28.820 [Grizzly(5)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:28.820 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute guard: 'replaceSubmission == false' in edge e_EditSubmission, in model: 'CeloeModel'
+17:38:28.820 [Grizzly(5)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_EditSubmission' in model: 'CeloeModel'
+17:38:28.827 [Grizzly(7)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:28.952 [Grizzly(9)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:28.958 [Grizzly(10)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:28.958 [Grizzly(10)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:28.958 [Grizzly(10)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_EditingSubmission' in model: 'CeloeModel'
+17:38:28.966 [Grizzly(13)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:30.298 [Grizzly(15)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:30.303 [Grizzly(17)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:30.303 [Grizzly(17)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:30.303 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute action: 'replaceSubmission = true;' in model: 'CeloeModel'
+17:38:30.304 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Data: 'JsonContext: org.graphwalker.io.factory.json.JsonContext@159a48a6, submit: true, replaceSubmission: true, addDiscussion: true, participateDiscussion: true, editDiscussion: true, openFile: true, attemptQuiz: true, attemptAgain: true, reviewAttempt: true, '
+17:38:30.305 [Grizzly(17)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_ReplaceSubmission' in model: 'CeloeModel'
+17:38:30.310 [Grizzly(19)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:36.324 [Grizzly(21)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:36.331 [Grizzly(23)] DEBUG org.graphwalker.restful.Restful - Received getNext
+17:38:36.331 [Grizzly(23)] DEBUG org.graphwalker.core.machine.SimpleMachine - Context: org.graphwalker.io.factory.json.JsonContext@159a48a6
+17:38:36.331 [Grizzly(23)] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_EditingSubmission' in model: 'CeloeModel'
+17:38:36.338 [Grizzly(25)] DEBUG org.graphwalker.restful.Restful - Received getData
+17:38:37.395 [Grizzly(27)] DEBUG org.graphwalker.restful.Restful - Received hasNext
+17:38:37.399 [Grizzly(29)] DEBUG org.graphwalker.restful.Restful - Received getStatistics

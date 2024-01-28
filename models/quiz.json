@@ -1,0 +1,103 @@
+{
+  "name": "Quiz Model",
+  "models": [
+    {
+      "name": "QuizModel",
+      "startElementId": "v0",
+      "vertices": [
+        {
+          "id": "v22",
+          "name": "v_CourseView",
+          "sharedState": "course"
+        },
+        {
+          "id": "v23",
+          "name": "v_Quiz",
+          "sharedState": "quiz"
+        },
+        {
+          "id": "v24",
+          "name": "v_NotAttempted"
+        },
+        {
+          "id": "v25",
+          "name": "v_Attempted"
+        },
+        {
+          "id": "v26",
+          "name": "v_InProgress"
+        },
+        {
+          "id": "v27",
+          "name": "v_FinishingAttempt"
+        },
+        {
+          "id": "v28",
+          "name": "v_ReviewingAttempt"
+        }
+      ],
+      "edges": [
+        {
+          "id": "e28",
+          "name": "e_BackQuiz",
+          "sourceVertexId": "v25",
+          "targetVertexId": "v22"
+        },
+        {
+          "id": "e29",
+          "name": "e_SelectNotAttempted",
+          "sourceVertexId": "v23",
+          "targetVertexId": "v24"
+        },
+        {
+          "id": "e30",
+          "name": "e_SelectAttempted",
+          "sourceVertexId": "v23",
+          "targetVertexId": "v25"
+        },
+        {
+          "id": "e31",
+          "name": "e_AttemptQuiz",
+          "sourceVertexId": "v24",
+          "targetVertexId": "v26"
+        },
+        {
+          "id": "e32",
+          "name": "e_FinishAttempt",
+          "sourceVertexId": "v26",
+          "targetVertexId": "v27"
+        },
+        {
+          "id": "e33",
+          "name": "e_ReturnAttempt",
+          "sourceVertexId": "v27",
+          "targetVertexId": "v26"
+        },
+        {
+          "id": "e34",
+          "name": "e_SubmitAttempt",
+          "sourceVertexId": "v27",
+          "targetVertexId": "v28"
+        },
+        {
+          "id": "e35",
+          "name": "e_FinishReview",
+          "sourceVertexId": "v28",
+          "targetVertexId": "v25"
+        },
+        {
+          "id": "e36",
+          "name": "e_ReviewAttempt",
+          "sourceVertexId": "v25",
+          "targetVertexId": "v28"
+        },
+        {
+          "id": "e37",
+          "name": "e_AttemptAgain",
+          "sourceVertexId": "v25",
+          "targetVertexId": "v26"
+        }
+      ]
+    }
+  ]
+}

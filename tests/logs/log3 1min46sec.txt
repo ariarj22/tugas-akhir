@@ -1,0 +1,205 @@
+Running:
+
+[2024-01-21 19:22:00.451653] CeloeModel.setUpModel - RUNNING...
+[2024-01-21 19:22:00.453653] CeloeModel.setUpModel - PASSED
+[2024-01-21 19:22:00.465802] CeloeModel.v_LoginPage - RUNNING...
+[2024-01-21 19:22:00.467793] CeloeModel.v_LoginPage - PASSED
+[2024-01-21 19:22:00.499127] CeloeModel.e_LoginSuccessful - RUNNING...
+[2024-01-21 19:22:00.502525] CeloeModel.e_LoginSuccessful - PASSED
+[2024-01-21 19:22:00.533782] CeloeModel.v_Home - RUNNING...
+[2024-01-21 19:22:00.536937] CeloeModel.v_Home - PASSED
+[2024-01-21 19:22:00.570163] CeloeModel.e_SelectDashboard - RUNNING...
+[2024-01-21 19:22:07.071042] CeloeModel.e_SelectDashboard - PASSED
+[2024-01-21 19:22:07.114476] CeloeModel.v_Dashboard - RUNNING...
+[2024-01-21 19:22:08.613381] CeloeModel.v_Dashboard - PASSED
+[2024-01-21 19:22:08.673231] CeloeModel.e_SelectCourse - RUNNING...
+[2024-01-21 19:22:13.657560] CeloeModel.e_SelectCourse - PASSED
+[2024-01-21 19:22:13.701447] CeloeModel.v_CourseView - RUNNING...
+[2024-01-21 19:22:14.825725] CeloeModel.v_CourseView - PASSED
+[2024-01-21 19:22:14.864796] CeloeModel.e_SelectAssignment - RUNNING...
+[2024-01-21 19:22:14.866800] CeloeModel.e_SelectAssignment - PASSED
+[2024-01-21 19:22:14.897272] CeloeModel.v_Assignment - RUNNING...
+[2024-01-21 19:22:14.900282] CeloeModel.v_Assignment - PASSED
+[2024-01-21 19:22:14.964501] CeloeModel.e_SelectSubmitted - RUNNING...
+[2024-01-21 19:22:15.484179] CeloeModel.e_SelectSubmitted - PASSED
+[2024-01-21 19:22:15.515126] CeloeModel.v_Submitted - RUNNING...
+[2024-01-21 19:22:17.010474] CeloeModel.v_Submitted - PASSED
+[2024-01-21 19:22:17.038554] CeloeModel.e_EditSubmission - RUNNING...
+[2024-01-21 19:22:18.017557] CeloeModel.e_EditSubmission - PASSED
+[2024-01-21 19:22:18.045363] CeloeModel.v_EditingSubmission - RUNNING...
+[2024-01-21 19:22:19.894453] CeloeModel.v_EditingSubmission - PASSED
+[2024-01-21 19:22:19.925203] CeloeModel.e_SaveSubmission - RUNNING...
+[2024-01-21 19:22:22.435074] CeloeModel.e_SaveSubmission - PASSED
+[2024-01-21 19:22:22.464369] CeloeModel.v_Submitted - RUNNING...
+[2024-01-21 19:22:23.620078] CeloeModel.v_Submitted - PASSED
+[2024-01-21 19:22:23.655005] CeloeModel.e_BackAssignment - RUNNING...
+[2024-01-21 19:22:24.848365] CeloeModel.e_BackAssignment - PASSED
+[2024-01-21 19:22:24.879191] CeloeModel.v_CourseView - RUNNING...
+[2024-01-21 19:22:26.432549] CeloeModel.v_CourseView - PASSED
+[2024-01-21 19:22:26.468807] CeloeModel.e_SelectFile - RUNNING...
+[2024-01-21 19:22:26.673084] CeloeModel.e_SelectFile - PASSED
+[2024-01-21 19:22:26.706657] CeloeModel.v_File - RUNNING...
+[2024-01-21 19:22:28.216875] CeloeModel.v_File - PASSED
+[2024-01-21 19:22:28.248255] CeloeModel.e_OpenFile - RUNNING...
+[2024-01-21 19:22:28.337406] CeloeModel.e_OpenFile - PASSED
+[2024-01-21 19:22:28.370750] CeloeModel.v_OpeningFile - RUNNING...
+[2024-01-21 19:22:30.767842] CeloeModel.v_OpeningFile - PASSED
+[2024-01-21 19:22:30.799972] CeloeModel.e_CloseFile - RUNNING...
+[2024-01-21 19:22:34.168574] CeloeModel.e_CloseFile - PASSED
+[2024-01-21 19:22:34.203638] CeloeModel.v_File - RUNNING...
+[2024-01-21 19:22:35.816677] CeloeModel.v_File - PASSED
+[2024-01-21 19:22:35.842761] CeloeModel.e_BackFile - RUNNING...
+[2024-01-21 19:22:37.002150] CeloeModel.e_BackFile - PASSED
+[2024-01-21 19:22:37.038844] CeloeModel.v_CourseView - RUNNING...
+[2024-01-21 19:22:38.516548] CeloeModel.v_CourseView - PASSED
+[2024-01-21 19:22:38.544391] CeloeModel.e_SelectFile - RUNNING...
+[2024-01-21 19:22:38.725801] CeloeModel.e_SelectFile - PASSED
+[2024-01-21 19:22:38.761043] CeloeModel.v_File - RUNNING...
+[2024-01-21 19:22:40.185885] CeloeModel.v_File - PASSED
+[2024-01-21 19:22:40.217905] CeloeModel.e_BackFile - RUNNING...
+[2024-01-21 19:22:41.351917] CeloeModel.e_BackFile - PASSED
+[2024-01-21 19:22:41.386185] CeloeModel.v_CourseView - RUNNING...
+[2024-01-21 19:22:42.590466] CeloeModel.v_CourseView - PASSED
+[2024-01-21 19:22:42.615684] CeloeModel.e_SelectFile - RUNNING...
+[2024-01-21 19:22:42.801337] CeloeModel.e_SelectFile - PASSED
+[2024-01-21 19:22:42.832555] CeloeModel.v_File - RUNNING...
+[2024-01-21 19:22:44.245650] CeloeModel.v_File - PASSED
+[2024-01-21 19:22:44.273582] CeloeModel.e_BackFile - RUNNING...
+[2024-01-21 19:22:45.420570] CeloeModel.e_BackFile - PASSED
+[2024-01-21 19:22:45.453167] CeloeModel.v_CourseView - RUNNING...
+[2024-01-21 19:22:46.996794] CeloeModel.v_CourseView - PASSED
+[2024-01-21 19:22:47.027952] CeloeModel.e_SelectForum - RUNNING...
+[2024-01-21 19:22:47.214875] CeloeModel.e_SelectForum - PASSED
+[2024-01-21 19:22:47.245605] CeloeModel.v_Forum - RUNNING...
+[2024-01-21 19:22:48.612368] CeloeModel.v_Forum - PASSED
+[2024-01-21 19:22:48.647421] CeloeModel.e_BackForum - RUNNING...
+[2024-01-21 19:22:49.982156] CeloeModel.e_BackForum - PASSED
+[2024-01-21 19:22:50.015236] CeloeModel.v_CourseView - RUNNING...
+[2024-01-21 19:22:51.528439] CeloeModel.v_CourseView - PASSED
+[2024-01-21 19:22:51.555520] CeloeModel.e_SelectQuiz - RUNNING...
+[2024-01-21 19:22:51.557872] CeloeModel.e_SelectQuiz - PASSED
+[2024-01-21 19:22:51.588714] CeloeModel.v_Quiz - RUNNING...
+[2024-01-21 19:22:51.592086] CeloeModel.v_Quiz - PASSED
+[2024-01-21 19:22:51.624637] CeloeModel.e_SelectNotAttempted - RUNNING...
+[2024-01-21 19:22:51.787811] CeloeModel.e_SelectNotAttempted - PASSED
+[2024-01-21 19:22:51.812065] CeloeModel.v_NotAttempted - RUNNING...
+[2024-01-21 19:22:53.321434] CeloeModel.v_NotAttempted - PASSED
+[2024-01-21 19:22:53.356160] CeloeModel.e_AttemptQuiz - RUNNING...
+[2024-01-21 19:22:55.769062] CeloeModel.e_AttemptQuiz - PASSED
+[2024-01-21 19:22:55.803156] CeloeModel.v_InProgress - RUNNING...
+[2024-01-21 19:22:59.211552] CeloeModel.v_InProgress - PASSED
+[2024-01-21 19:22:59.241672] CeloeModel.e_FinishAttempt - RUNNING...
+[2024-01-21 19:22:59.892380] CeloeModel.e_FinishAttempt - PASSED
+[2024-01-21 19:22:59.915209] CeloeModel.v_FinishingAttempt - RUNNING...
+[2024-01-21 19:23:01.115805] CeloeModel.v_FinishingAttempt - PASSED
+[2024-01-21 19:23:01.142102] CeloeModel.e_SubmitAttempt - RUNNING...
+[2024-01-21 19:23:01.951961] CeloeModel.e_SubmitAttempt - PASSED
+[2024-01-21 19:23:01.975640] CeloeModel.v_ReviewingAttempt - RUNNING...
+[2024-01-21 19:23:03.345672] CeloeModel.v_ReviewingAttempt - PASSED
+[2024-01-21 19:23:03.372413] CeloeModel.e_FinishReview - RUNNING...
+[2024-01-21 19:23:04.682174] CeloeModel.e_FinishReview - PASSED
+[2024-01-21 19:23:04.707106] CeloeModel.v_Attempted - RUNNING...
+[2024-01-21 19:23:06.015966] CeloeModel.v_Attempted - PASSED
+[2024-01-21 19:23:06.044096] CeloeModel.e_BackQuiz - RUNNING...
+[2024-01-21 19:23:07.227735] CeloeModel.e_BackQuiz - PASSED
+[2024-01-21 19:23:07.259970] CeloeModel.v_CourseView - RUNNING...
+[2024-01-21 19:23:08.737906] CeloeModel.v_CourseView - PASSED
+[2024-01-21 19:23:08.764469] CeloeModel.e_SelectForum - RUNNING...
+[2024-01-21 19:23:08.922362] CeloeModel.e_SelectForum - PASSED
+[2024-01-21 19:23:08.951928] CeloeModel.v_Forum - RUNNING...
+[2024-01-21 19:23:10.467748] CeloeModel.v_Forum - PASSED
+[2024-01-21 19:23:10.500194] CeloeModel.e_SelectDiscussion - RUNNING...
+[2024-01-21 19:23:10.788992] CeloeModel.e_SelectDiscussion - PASSED
+[2024-01-21 19:23:10.814733] CeloeModel.v_Discussion - RUNNING...
+[2024-01-21 19:23:14.356160] CeloeModel.v_Discussion - PASSED
+[2024-01-21 19:23:14.387835] CeloeModel.e_EditDiscussion - RUNNING...
+[2024-01-21 19:23:46.385264] CeloeModel.e_EditDiscussion - FAILED
+  Error: Message:
+  Stacktrace:
+  NoSuchElementError: An element could not be located on the page using the given search parameters.
+      at AndroidUiautomator2Driver.findElOrEls (C:\Users\Aria\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\lib\commands\find.ts:87:11)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\Aria\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:60:12)
+      at AndroidUiautomator2Driver.findElement (C:\Users\Aria\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:75:12)
+
+  Traceback (most recent call last):
+    File "c:\users\aria\appdata\local\programs\python\python37\lib\site-packages\altwalker\executor.py", line 52, in get_step_result
+      ret = callable(*args, **kwargs)
+    File "C:\code\ta\tests\test.py", line 363, in e_EditDiscussion
+      WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.XPATH, '//android.widget.TextView[@text="Edit"]')))
+    File "c:\users\aria\appdata\local\programs\python\python37\lib\site-packages\selenium\webdriver\support\wait.py", line 89, in until
+      raise TimeoutException(message, screen, stacktrace)
+  selenium.common.exceptions.TimeoutException: Message:
+  Stacktrace:
+  NoSuchElementError: An element could not be located on the page using the given search parameters.
+      at AndroidUiautomator2Driver.findElOrEls (C:\Users\Aria\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\lib\commands\find.ts:87:11)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\Aria\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:60:12)
+      at AndroidUiautomator2Driver.findElement (C:\Users\Aria\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\lib\basedriver\commands\find.ts:75:12)
+  
+
+
+[2024-01-21 19:23:46.419559] Unexpected error occurred while running CeloeModel.e_EditDiscussion.  Error: GraphWalker responded with status code: 500.
+
+  Traceback (most recent call last):
+    File "c:\users\aria\appdata\local\programs\python\python37\lib\site-packages\altwalker\walker.py", line 157, in _run_step
+      status = self._execute_step(step)
+    File "c:\users\aria\appdata\local\programs\python\python37\lib\site-packages\altwalker\walker.py", line 141, in _execute_step
+      self._planner.fail(error["message"])
+    File "c:\users\aria\appdata\local\programs\python\python37\lib\site-packages\altwalker\planner.py", line 106, in fail
+      self._client.fail(message)
+    File "c:\users\aria\appdata\local\programs\python\python37\lib\site-packages\altwalker\graphwalker.py", line 513, in fail
+      self._validate_response(response)
+    File "c:\users\aria\appdata\local\programs\python\python37\lib\site-packages\altwalker\graphwalker.py", line 371, in _validate_response
+      "GraphWalker responded with status code: {}.".format(response.status_code))
+  altwalker.exceptions.GraphWalkerException: GraphWalker responded with status code: 500.
+  
+
+
+Statistics:
+
+  Model Coverage...............................0%
+  Number of Models..............................1
+  Completed Models..............................0
+  Incomplete Models.............................0
+  Not Executed Models...........................0
+  Failed Models.................................1
+
+  Vertex Coverage.............................80%
+  Number of Vertices...........................21
+  Visited Vertices.............................17
+  Unvisited Vertices............................4
+
+  Unvisited Vertices:
+
+    * v10 - CeloeModel.v_NotSubmitted
+    * v12 - CeloeModel.v_AddingSubmission
+    * v16 - CeloeModel.v_DiscussionAdded
+    * v18 - CeloeModel.v_EditingDiscussion
+
+
+  Edge Coverage...............................63%
+  Number of Edges..............................36
+  Visited Edges................................23
+  Unvisited Edges..............................13
+
+  Unvisited Edges:
+
+    * e8 - CeloeModel.e_SelectNotSubmitted
+    * e10 - CeloeModel.e_AddSubmission
+    * e11 - CeloeModel.e_Submit
+    * e14 - CeloeModel.e_ReplaceSubmission
+    * e17 - CeloeModel.e_AddDiscussion
+    * e18 - CeloeModel.e_DeleteDiscussion
+    * e21 - CeloeModel.e_SaveDiscussion
+    * e22 - CeloeModel.e_ParticipateDiscussion
+    * e24 - CeloeModel.e_BackDiscussion
+    * e30 - CeloeModel.e_SelectAttempted
+    * e33 - CeloeModel.e_ReturnAttempt
+    * e36 - CeloeModel.e_ReviewAttempt
+    * e37 - CeloeModel.e_AttemptAgain
+
+
+
+Status:  FAILED 
+

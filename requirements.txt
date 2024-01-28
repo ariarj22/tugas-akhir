@@ -1,0 +1,2 @@
+altwalker==0.3.1
+Appium-Python-Client==2.1.4

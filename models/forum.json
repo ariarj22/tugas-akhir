@@ -1,0 +1,81 @@
+{
+  "name": "Forum Model",
+  "models": [
+    {
+      "name": "ForumModel",
+      "vertices": [
+        {
+          "id": "v14",
+          "name": "v_CourseView",
+          "sharedState": "course"
+        },
+        {
+          "id": "v15",
+          "name": "v_Forum",
+          "sharedState": "forum"
+        },
+        {
+          "id": "v16",
+          "name": "v_DiscussionAdded"
+        },
+        {
+          "id": "v17",
+          "name": "v_Discussion"
+        },
+        {
+          "id": "v18",
+          "name": "v_EditingDiscussion"
+        }
+      ],
+      "edges": [
+        {
+          "id": "e16",
+          "name": "e_BackForum",
+          "sourceVertexId": "v15",
+          "targetVertexId": "v14"
+        },
+        {
+          "id": "e17",
+          "name": "e_AddDiscussion",
+          "sourceVertexId": "v15",
+          "targetVertexId": "v16"
+        },
+        {
+          "id": "e18",
+          "name": "e_DeleteDiscussion",
+          "sourceVertexId": "v16",
+          "targetVertexId": "v15"
+        },
+        {
+          "id": "e19",
+          "name": "e_SelectDiscussion",
+          "sourceVertexId": "v15",
+          "targetVertexId": "v17"
+        },
+        {
+          "id": "e20",
+          "name": "e_EditDiscussion",
+          "sourceVertexId": "v17",
+          "targetVertexId": "v18"
+        },
+        {
+          "id": "e21",
+          "name": "e_SaveDiscussion",
+          "sourceVertexId": "v18",
+          "targetVertexId": "v17"
+        },
+        {
+          "id": "e22",
+          "sourceVertexId": "v17",
+          "targetVertexId": "v17"
+        },
+        {
+          "id": "e24",
+          "name": "e_BackDiscussion",
+          "sourceVertexId": "v17",
+          "targetVertexId": "v15"
+        }
+      ]
+    }
+  ]
+}
